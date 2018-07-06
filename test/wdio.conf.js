@@ -1,4 +1,4 @@
-var BUILD_ID = process.env.TRAVIS_BUILD_ID || new Date().getTime();
+// var BUILD_ID = process.env.TRAVIS_BUILD_ID || new Date().getTime();
 
 exports.config = {
 
@@ -13,7 +13,7 @@ exports.config = {
     // backend you should define the host address and port here.
     //
     host: '0.0.0.0',
-    port: 4445,
+    port: 4444,
     //
     // =================
     // Service Providers
@@ -22,8 +22,8 @@ exports.config = {
     // should work too though). These services define specific user and key (or access key)
     // values you need to put in here in order to connect to these services.
     //
-    user: process.env.SAUCE_USERNAME,
-    key: process.env.SAUCE_ACCESS_KEY,
+    // user: process.env.SAUCE_USERNAME,
+    // key: process.env.SAUCE_ACCESS_KEY,
     //
     // If you are using Sauce Labs WebdriverIO takes care about updating the job information
     // once the test is done. This option is set to `true` per default.
@@ -73,11 +73,11 @@ exports.config = {
     //     build: BUILD_ID
     // },
     {
-        browserName: 'safari',
-        platform: 'OS X 10.10',
-        version: '8.0',
-        name: 'safari test',
-        build: BUILD_ID
+        browserName: 'chrome'
+        // platform: 'OS X 10.10',
+        // version: '8.0',
+        // name: 'safari test',
+        // build: BUILD_ID
     }],
     //
     // ===================
@@ -140,6 +140,9 @@ exports.config = {
             outputDir: './'
         }
     },
+    services: [
+		'selenium-standalone'
+	],
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
@@ -156,5 +159,12 @@ exports.config = {
         // Make use of jasmine specific grep functionality
         // grep: null,
         // invertGrep: null
+    },
+    onPrepare: function() {
+        console.log('Tests have began');
+    },
+    onComplete: function() {
+        console.log('All Tests completed');
     }
+
 };
