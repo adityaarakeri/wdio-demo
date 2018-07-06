@@ -57,19 +57,22 @@ exports.config = {
     // platform configurator. A great tool to configure your capabilities.
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
-    capabilities: [{
-        browserName: 'chrome',
-        platform: 'Windows 8.1',
-        version: '41.0',
-        name: 'chrome test',
-        build: BUILD_ID
-    }, {
-        browserName: 'firefox',
-        platform: 'Windows 8',
-        version: '37.0',
-        name: 'firefox test',
-        build: BUILD_ID
-    },{
+    capabilities: [
+    //     {
+    //     browserName: 'chrome',
+    //     platform: 'Windows 8.1',
+    //     version: '41.0',
+    //     name: 'chrome test',
+    //     build: BUILD_ID
+    // }, 
+    // {
+    //     browserName: 'firefox',
+    //     platform: 'Windows 8',
+    //     version: '37.0',
+    //     name: 'firefox test',
+    //     build: BUILD_ID
+    // },
+    {
         browserName: 'safari',
         platform: 'OS X 10.10',
         version: '8.0',
@@ -131,6 +134,12 @@ exports.config = {
     // The following are supported: dot (default), spec and xunit
     // see also: http://webdriver.io/guide/testrunner/reporters.html
     reporter: 'dot',
+    reporters: ['dot', 'junit'],
+    reporterOptions: {
+        junit: {
+            outputDir: './'
+        }
+    },
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
