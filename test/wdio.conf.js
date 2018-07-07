@@ -73,8 +73,8 @@ exports.config = {
     //     build: BUILD_ID
     // },
     {
-        browserName: 'chrome'
-        // platform: 'OS X 10.10',
+        browserName: 'chrome',
+        // platform: '',
         // version: '8.0',
         // name: 'safari test',
         // build: BUILD_ID
@@ -133,16 +133,18 @@ exports.config = {
     // Test reporter for stdout.
     // The following are supported: dot (default), spec and xunit
     // see also: http://webdriver.io/guide/testrunner/reporters.html
-    reporter: 'dot',
-    reporters: ['dot', 'junit'],
+    // reporter: 'dot',
+    reporters: ['spec', 'junit'],
     reporterOptions: {
-        junit: {
-            outputDir: './'
+        junit:  {
+            outputDir:   './reports/junit-results/'
+            // outputDir:   './'
+
         }
     },
-    services: [
-		'selenium-standalone'
-	],
+    // services: [
+	// 	'selenium-standalone'
+	// ],
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
@@ -161,10 +163,10 @@ exports.config = {
         // invertGrep: null
     },
     onPrepare: function() {
-        console.log('Tests have began');
+        console.log('Tests have began\n');
     },
     onComplete: function() {
-        console.log('All Tests completed');
+        console.log('All Tests completed\n');
     }
 
 };

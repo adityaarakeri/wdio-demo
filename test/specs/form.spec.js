@@ -1,6 +1,8 @@
 describe('auth form', function() {
 
     it('should deny access with wrong creds', function*() {
+        yield browser.pause(2000);
+
         yield browser.url('/login');
         yield browser.setValue('#username', 'foo');
         yield browser.setValue('#password', 'bar');
@@ -11,6 +13,8 @@ describe('auth form', function() {
     });
 
     it('should allow access with correct creds', function*() {
+        yield browser.pause(2000);
+
         yield browser.url('/login');
         yield browser.setValue('#username', 'tomsmith');
         yield browser.setValue('#password', 'SuperSecretPassword!');

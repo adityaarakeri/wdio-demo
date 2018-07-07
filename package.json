@@ -4,9 +4,10 @@
   "description": "demo project to test WebdriverIO integration with Jenkins",
   "main": "index.js",
   "scripts": {
-    "test": "wdio test/wdio.conf.js",
-    "start": "selenium-standalone start",
-		"install": "selenium-standalone install"
+    "test": "rm -rf ./reports && wdio test/wdio.conf.js",
+    "selstart": "selenium-standalone start",
+    "selinstall": "selenium-standalone install",
+    "junit-report": "node_modules/.bin/junit-viewer --results=./reports/junit-results --save=junit-results.html && open junit-results.html"
   },
   "repository": {
     "type": "git",
@@ -19,11 +20,15 @@
   },
   "homepage": "https://github.com/christian-bromann/wdio-demo",
   "dependencies": {
-    "jasmine": "^2.99.0"
+    "jasmine": "^2.99.0",
+    "selenium-standalone": "^6.15.1",
+    "webdriverio": "^4.10.0"
   },
   "devDependencies": {
-    "selenium-standalone": "^6.15.1",
+    "jasmine-xml-reporter": "^1.2.1",
+    "junit-viewer": "^4.11.1",
+    "wdio-jasmine-framework": "^0.3.5",
     "wdio-junit-reporter": "^0.4.4",
-    "webdriverio": "^3.4.0"
+    "wdio-spec-reporter": "^0.1.5"
   }
 }
